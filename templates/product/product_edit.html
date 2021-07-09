@@ -1,0 +1,99 @@
+{% extends '_base.html' %}
+{% block content %}
+    <div class="page-breadcrumb">
+        <div class="row align-items-center">
+            <div class="col-md-6 col-8 align-self-center">
+                <h3 class="page-title mb-0 p-0">Update</h3>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Table</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ product.name }} </h3>
+                        <h6 class="card-subtitle">Different Devices Used to Visit</h6>
+                        <img src="{{ product.image.url }}" width="400" height="auto">
+                    </div>
+                    <div>
+                        <hr class="mt-0 mb-0">
+                    </div>
+                    <div class="card-body text-center ">
+                        <ul class="list-inline d-flex justify-content-center align-items-center mb-0">
+                            <li class="me-4">
+                                <h6 class="text-info"><i class="fa fa-circle font-10 me-2 "></i>Mobile</h6>
+                            </li>
+                            <li class="me-4">
+                                <h6 class=" text-primary"><i class="fa fa-circle font-10 me-2"></i>Desktop</h6>
+                            </li>
+                            <li class="me-4">
+                                <h6 class=" text-success"><i class="fa fa-circle font-10 me-2"></i>Tablet</h6>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" action="{% url 'product_detail' pk=product.id %}" enctype="multipart/form-data">
+                            {% csrf_token %}
+                             {{ form.as_p }}
+{#                            <div class="form-group">#}
+{#                                <label for="name">Name</label>#}
+{#                                <input type="text" name="name" class="form-control" required id="name"#}
+{#                                       value="{{ product.name }}">#}
+{#                            </div>#}
+{#                            <div class="form-group">#}
+{#                                <label for="brand">Brand</label>#}
+{#                                <input type="text" name="brand" required class="form-control" id="brand"#}
+{#                                       value="{{ product.brand }}">#}
+{#                            </div>#}
+{#                            <div class="form-group">#}
+{#                                <label for="description">Description</label>#}
+{#                                <textarea type="text" rows="6" name="description" class="form-control"#}
+{#                                          id="description" required>{{ product.description }} </textarea>#}
+{#                            </div>#}
+{#                            <div class="form-group">#}
+{#                                <label for="price">Price</label>#}
+{#                                <input type="number" name="price" class="form-control" required id="price"#}
+{#                                       value="{{ product.price }}">#}
+{#                            </div>#}
+{#                            <div class="form-group">#}
+{#                                <label for="price">Subcategory</label>#}
+{#                                <select name="sub_category" class="form-control" id="subcategory">#}
+{#                                    {% for sub_category in all_sub_category %}#}
+{#                                        {% if product.sub_category.slug == sub_category.slug %}#}
+{#                                            <option value="{{ sub_category.id }}"#}
+{#                                                    selected>{{ sub_category.name }}</option>#}
+{#                                        {% else %}#}
+{#                                            <option value="{{ sub_category.id }}">{{ sub_category.name }}</option>#}
+{#                                        {% endif %}#}
+{##}
+{#                                    {% endfor %}#}
+{##}
+{##}
+{#                                </select>#}
+{##}
+{#                            </div>#}
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                    <div>
+                        <hr class="mt-0 mb-0">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
