@@ -20,15 +20,7 @@ class ProductEditView(UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'product/product_edit.html'
-    success_url = reverse_lazy('product_detail')
-    #
-    # def get(self, request, pk):
-    #     product = Product.objects.get(id=pk)
-    #     return render(request, 'product/product_edit.html', context={'product': product})
-    #
-    # def post(self, request, pk):
-    #     Product.crud.update_product(request.POST, pk)
-    #     return redirect('product_list')
+    success_url = reverse_lazy('product_list')
 
 
 class ProductCreateView(CreateView):
@@ -45,6 +37,12 @@ class ProductListBySubCategoryView(ListView):
 
     def get_queryset(self):
         return Product.objects.filter(sub_category__slug=self.kwargs['slug'])
+
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    template_name = 'product/product_confirm_delete.html'
+    success_url = reverse_lazy('product_list')
 
 
 class CategoryListView(ListView):

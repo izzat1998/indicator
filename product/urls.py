@@ -1,13 +1,14 @@
 from django.urls import path
 from .views import ProductView, CategoryListView, CategoryEditView, CategoryCreateView, \
     CategoryDeleteView, SubCategoryListView, SubCategoryEditView, SubCategoryDeleteView, SubCategoryCreateView, \
-    SubCategoryListByCategoryView, ProductCreateView, ProductListBySubCategoryView, ProductEditView
+    SubCategoryListByCategoryView, ProductCreateView, ProductListBySubCategoryView, ProductEditView, ProductDeleteView
 
 urlpatterns = [
     path('product_list/', ProductView.as_view(), name='product_list'),
     path('product_list/<int:pk>/', ProductEditView.as_view(), name='product_detail'),
     path('product/create/', ProductCreateView.as_view(), name='product_create'),
     path('product_list/<str:slug>/', ProductListBySubCategoryView.as_view(), name='product_by_sub_category'),
+    path('product_list/<int:pk>/delete/', ProductDeleteView.as_view(), name='product_delete'),
     # Category
     path('category_list/', CategoryListView.as_view(), name='category_list'),
     path('category_list/<int:pk>/edit/', CategoryEditView.as_view(), name='category_edit'),

@@ -48,43 +48,6 @@
                         <form method="post" action="{% url 'product_detail' pk=product.id %}" enctype="multipart/form-data">
                             {% csrf_token %}
                              {{ form.as_p }}
-{#                            <div class="form-group">#}
-{#                                <label for="name">Name</label>#}
-{#                                <input type="text" name="name" class="form-control" required id="name"#}
-{#                                       value="{{ product.name }}">#}
-{#                            </div>#}
-{#                            <div class="form-group">#}
-{#                                <label for="brand">Brand</label>#}
-{#                                <input type="text" name="brand" required class="form-control" id="brand"#}
-{#                                       value="{{ product.brand }}">#}
-{#                            </div>#}
-{#                            <div class="form-group">#}
-{#                                <label for="description">Description</label>#}
-{#                                <textarea type="text" rows="6" name="description" class="form-control"#}
-{#                                          id="description" required>{{ product.description }} </textarea>#}
-{#                            </div>#}
-{#                            <div class="form-group">#}
-{#                                <label for="price">Price</label>#}
-{#                                <input type="number" name="price" class="form-control" required id="price"#}
-{#                                       value="{{ product.price }}">#}
-{#                            </div>#}
-{#                            <div class="form-group">#}
-{#                                <label for="price">Subcategory</label>#}
-{#                                <select name="sub_category" class="form-control" id="subcategory">#}
-{#                                    {% for sub_category in all_sub_category %}#}
-{#                                        {% if product.sub_category.slug == sub_category.slug %}#}
-{#                                            <option value="{{ sub_category.id }}"#}
-{#                                                    selected>{{ sub_category.name }}</option>#}
-{#                                        {% else %}#}
-{#                                            <option value="{{ sub_category.id }}">{{ sub_category.name }}</option>#}
-{#                                        {% endif %}#}
-{##}
-{#                                    {% endfor %}#}
-{##}
-{##}
-{#                                </select>#}
-{##}
-{#                            </div>#}
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>

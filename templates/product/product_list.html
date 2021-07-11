@@ -59,6 +59,12 @@
                                         <td><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></td>
                                         <td>{{ product.description|truncatewords:10 }}</td>
                                         <td>{{ product.price }}</td>
+                                        <td><a href="{{ product.get_absolute_url }}"
+                                               class="btn btn-primary d-none d-md-inline-block text-white"
+                                        >Edit</a>
+                                            <a href="{% url 'product_delete' pk=product.id %}"
+                                               class="btn btn-danger d-none d-md-inline-block text-white"
+                                            >Delete</a></td>
                                     </tr>
                                 {% endfor %}
                                 </tbody>

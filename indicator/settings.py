@@ -24,7 +24,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.environ.get('DEBUG', default=0))
 
-
 ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'users.CustomUser'  # ne
 # Application definition
@@ -90,10 +89,15 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': '1',
-        'HOST': 'db',
+        'HOST': 'postgresql-horizontal-90572',
         'PORT': 5432
     }
 }
+
+import dj_database_url
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
