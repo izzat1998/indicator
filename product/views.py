@@ -35,6 +35,7 @@ class ProductListBySubCategoryView(ListView):
     context_object_name = 'product_list'
     template_name = 'product/product_list.html'
 
+
     def get_queryset(self):
         return Product.objects.filter(sub_category__slug=self.kwargs['slug'])
 
@@ -75,12 +76,13 @@ class SubCategoryListView(ListView):
     model = SubCategory
     context_object_name = 'sub_category_list'
     template_name = 'subcategory/sub_category_list.html'
-
+    paginate_by = 10
 
 class SubCategoryListByCategoryView(ListView):
     model = SubCategory
     context_object_name = 'sub_category_list'
     template_name = 'subcategory/sub_category_list.html'
+
 
     def get_queryset(self):
         return SubCategory.objects.filter(category__slug=self.kwargs['slug'])

@@ -12,7 +12,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class SubCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = SubCategory
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'slug']
 
 
 class ProductSerializer(serializers.ModelSerializer):

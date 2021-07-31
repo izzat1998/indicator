@@ -6,6 +6,7 @@ from product.models import Category, SubCategory, Product
 
 
 class CategoryListApiView(ListAPIView):
+
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
