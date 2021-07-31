@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'indicator.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'Professional',
+        'NAME': 'indicator',
+        'USER': 'izzat',
         'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432
