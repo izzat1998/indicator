@@ -83,8 +83,8 @@ WSGI_APPLICATION = 'indicator.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'indicator',
-        'USER': 'izzat',
+        'NAME': 'postgres',
+        'USER': 'Professional',
         'PASSWORD': '1',
         'HOST': 'localhost',
         'PORT': 5432
@@ -126,13 +126,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = '/root/indicator/staticfiles'
+STATICFILES_DIRS = ['root/indicator/static']
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # new
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
-
 
 MEDIA_URL = '/media/'  # new
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # new
